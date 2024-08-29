@@ -5,3 +5,7 @@ res://entities/player.tscn
 res://main.tscn
 res://entities/projectile.tscn
 res://entities/hand.gd
+res://entities/turret.gd
+res://main.gd
+res://entities/player.gd
+res://entities/turret_projectile.tscn

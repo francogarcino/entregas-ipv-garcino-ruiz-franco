@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwwt1opv0hquv"]
+
+[ext_resource type="PackedScene" uid="uid://c6ppxoy0uffdj" path="res://entities/abs_projectile.tscn" id="1_vcmeo"]
+
+[node name="Projectile" instance=ExtResource("1_vcmeo")]
+
+[node name="TTL" parent="." index="1"]
+wait_time = 7.0

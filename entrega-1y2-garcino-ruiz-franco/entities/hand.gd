@@ -1,8 +1,7 @@
 extends Sprite2D
 @onready var fire_position = $ShootOrigin
 
-var projectile_scene:PackedScene = preload("res://entities/projectile.tscn")
-
+@export var projectile_scene: PackedScene
 var container:Node
 
 func shoot() -> void:

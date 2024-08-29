@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b486ilj5k2pm2"]
+[gd_scene load_steps=3 format=3 uid="uid://b486ilj5k2pm2"]
 
 [ext_resource type="PackedScene" uid="uid://c6ppxoy0uffdj" path="res://entities/abs_projectile.tscn" id="1_b07ds"]
+[ext_resource type="Texture2D" uid="uid://byrbhprvac52j" path="res://resources/proyectile_player.png" id="2_ew7y1"]
 
 [node name="Projectile" instance=ExtResource("1_b07ds")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ew7y1")
 
 [node name="TTL" parent="." index="1"]
 wait_time = 3.0

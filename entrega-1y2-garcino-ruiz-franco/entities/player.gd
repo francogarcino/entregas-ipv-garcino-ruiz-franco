@@ -27,4 +27,3 @@ func _process(delta: float) -> void:
 func set_proj_container(container) -> void:
 	cannon.container = container
 	container = container
-	
