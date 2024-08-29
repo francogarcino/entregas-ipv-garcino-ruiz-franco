@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbwdhpdbhrnee"]
+
+[ext_resource type="Texture2D" uid="uid://brp8pmr8c7tev" path="res://resources/background.png" id="1_8u6mp"]
+[ext_resource type="Script" path="res://main.gd" id="1_gwko1"]
+[ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://player.tscn" id="2_c6aog"]
+[ext_resource type="Texture2D" uid="uid://dixf45gyum64o" path="res://resources/floor.png" id="2_l5fer"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gwko1")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_8u6mp")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(580, 571.5)
+scale = Vector2(18.1818, 2.71212)
+texture = ExtResource("2_l5fer")
+
+[node name="Player" parent="." instance=ExtResource("2_c6aog")]
+position = Vector2(-68, 140)
