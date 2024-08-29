@@ -1,5 +1,7 @@
+res://entities/turret.tscn
+res://projectile.gd
+res://entities/player.tscn
+res://entities/abs_projectile.tscn
 res://main.tscn
-res://player.tscn
-res://player.gd
-res://background.gd
+res://entities/hand.gd
 res://main.gd

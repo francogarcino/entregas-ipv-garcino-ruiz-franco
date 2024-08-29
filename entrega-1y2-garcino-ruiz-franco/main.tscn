@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://brp8pmr8c7tev" path="res://resources/background.png" id="1_8u6mp"]
 [ext_resource type="Script" path="res://main.gd" id="1_gwko1"]
-[ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://player.tscn" id="2_c6aog"]
+[ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://entities/player.tscn" id="2_c6aog"]
 [ext_resource type="Texture2D" uid="uid://dixf45gyum64o" path="res://resources/floor.png" id="2_l5fer"]
 
 [node name="Main" type="Node"]

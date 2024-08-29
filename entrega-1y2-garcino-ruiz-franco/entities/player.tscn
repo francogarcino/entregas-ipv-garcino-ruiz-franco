@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8trwyeiiyu7a"]
+
+[ext_resource type="Texture2D" uid="uid://baqxh7akeyhlq" path="res://resources/player.png" id="1_88i3j"]
+[ext_resource type="Script" path="res://entities/player.gd" id="1_inmcx"]
+[ext_resource type="Texture2D" uid="uid://cn542m76vfcxh" path="res://resources/cannon.png" id="3_hyor1"]
+[ext_resource type="Script" path="res://entities/hand.gd" id="4_xwei3"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_inmcx")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_88i3j")
+
+[node name="Hand" type="Sprite2D" parent="."]
+texture = ExtResource("3_hyor1")
+script = ExtResource("4_xwei3")
+
+[node name="ShootOrigin" type="Marker2D" parent="Hand"]
+position = Vector2(14, 0)
