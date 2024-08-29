@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c6ppxoy0uffdj" path="res://entities/abs_projectile.tscn" id="1_b07ds"]
 
 [node name="Projectile" instance=ExtResource("1_b07ds")]
+
+[node name="TTL" parent="." index="1"]
+wait_time = 3.0

@@ -13,3 +13,7 @@ func set_start_position(start: Vector2, direction: Vector2) -> void:
 
 func _physics_process(delta: float) -> void: 
 	position += move_direction*300*delta
+
+
+func _on_ttl_timeout() -> void:
+	queue_free()
