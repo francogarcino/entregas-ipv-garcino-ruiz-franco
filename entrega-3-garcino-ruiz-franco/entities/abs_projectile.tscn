@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ppxoy0uffdj"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_y88vv"]
+[ext_resource type="Texture2D" uid="uid://bn4ct7aaxacie" path="res://resources/proyectile_turret.png" id="2_1mh5n"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_y88vv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1mh5n")
+
+[node name="TTL" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TTL" to="." method="_on_ttl_timeout"]

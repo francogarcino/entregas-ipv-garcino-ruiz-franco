@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbwdhpdbhrnee"]
+
+[ext_resource type="Texture2D" uid="uid://brp8pmr8c7tev" path="res://resources/background.png" id="1_8u6mp"]
+[ext_resource type="Script" path="res://main.gd" id="1_gwko1"]
+[ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://entities/player.tscn" id="2_c6aog"]
+[ext_resource type="Texture2D" uid="uid://dixf45gyum64o" path="res://resources/floor.png" id="2_l5fer"]
+[ext_resource type="Script" path="res://entities/hand.gd" id="4_ar8h0"]
+[ext_resource type="PackedScene" uid="uid://vdn3dsjr0d8m" path="res://entities/turret.tscn" id="6_ggjtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxb5j"]
+size = Vector2(1194, 176)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gwko1")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_8u6mp")
+
+[node name="Player" parent="." instance=ExtResource("2_c6aog")]
+position = Vector2(-68, 140)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Turret" parent="." instance=ExtResource("6_ggjtg")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Floor"]
+position = Vector2(580, 571.5)
+scale = Vector2(18.1818, 2.71212)
+texture = ExtResource("2_l5fer")
+script = ExtResource("4_ar8h0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(579, 569)
+shape = SubResource("RectangleShape2D_kxb5j")
