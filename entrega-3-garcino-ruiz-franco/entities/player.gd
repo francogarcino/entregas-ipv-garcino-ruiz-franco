@@ -1,7 +1,8 @@
 extends CharacterBody2D
+class_name Jugador
 
-@export var speed_limit = 400.0
-@export var jump_force = 120.0
+@export var speed_limit = 500.0
+@export var jump_force = 400.0
 @export var acceleration = 20.0
 @export var friction = 0.1
 @export var gravity = 3
@@ -31,7 +32,7 @@ func _process(delta: float) -> void:
 		velocity.x = 0
 	
 	# salto
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") && is_on_floor():
 		velocity.y = -jump_force
 	velocity.y += gravity
 	

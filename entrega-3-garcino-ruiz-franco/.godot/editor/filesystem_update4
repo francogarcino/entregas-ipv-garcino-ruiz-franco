@@ -1,3 +1,8 @@
 res://main.tscn
+res://PhysicBody.tscn
+res://main.gd
+res://entities/turret.gd
+res://entities/turret.tscn
+res://entities/PhysicBody.tscn
 res://entities/player.tscn
 res://entities/player.gd

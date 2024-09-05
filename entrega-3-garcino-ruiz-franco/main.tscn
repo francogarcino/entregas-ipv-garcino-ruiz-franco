@@ -1,39 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbwdhpdbhrnee"]
+[gd_scene load_steps=7 format=3 uid="uid://bbwdhpdbhrnee"]
 
 [ext_resource type="Texture2D" uid="uid://brp8pmr8c7tev" path="res://resources/background.png" id="1_8u6mp"]
 [ext_resource type="Script" path="res://main.gd" id="1_gwko1"]
 [ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://entities/player.tscn" id="2_c6aog"]
-[ext_resource type="Texture2D" uid="uid://dixf45gyum64o" path="res://resources/floor.png" id="2_l5fer"]
-[ext_resource type="Script" path="res://entities/hand.gd" id="4_ar8h0"]
+[ext_resource type="PackedScene" uid="uid://cxcpc2cmrjia4" path="res://entities/world_floor.tscn" id="5_3h5il"]
+[ext_resource type="PackedScene" uid="uid://ceav8jg3wdb5n" path="res://entities/PhysicBody.tscn" id="6_236b3"]
 [ext_resource type="PackedScene" uid="uid://vdn3dsjr0d8m" path="res://entities/turret.tscn" id="6_ggjtg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxb5j"]
-size = Vector2(1194, 176)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gwko1")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 1007.0
+offset_bottom = 603.0
 texture = ExtResource("1_8u6mp")
 
 [node name="Player" parent="." instance=ExtResource("2_c6aog")]
 position = Vector2(-68, 140)
+gravity = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Turret" parent="." instance=ExtResource("6_ggjtg")]
+[node name="TurretA" parent="." instance=ExtResource("6_ggjtg")]
+position = Vector2(565, 52)
 
-[node name="Floor" type="StaticBody2D" parent="."]
-metadata/_edit_group_ = true
+[node name="Floor-A" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(28, 0)
+scale = Vector2(3, 1)
 
-[node name="Sprite" type="Sprite2D" parent="Floor"]
-position = Vector2(580, 571.5)
-scale = Vector2(18.1818, 2.71212)
-texture = ExtResource("2_l5fer")
-script = ExtResource("4_ar8h0")
+[node name="Floor-D" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(903, -25)
+scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(579, 569)
-shape = SubResource("RectangleShape2D_kxb5j")
+[node name="WallRigth" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(636, -522)
+rotation = 1.5708
+
+[node name="WallLeft" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(4033, -526)
+rotation = 1.5708
+
+[node name="Box" parent="." instance=ExtResource("6_236b3")]
+position = Vector2(787, 147)
+
+[node name="Box2" parent="Box" instance=ExtResource("6_236b3")]
+position = Vector2(43, -101)
