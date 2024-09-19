@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbwdhpdbhrnee"]
+
+[ext_resource type="Texture2D" uid="uid://brp8pmr8c7tev" path="res://resources/background.png" id="1_8u6mp"]
+[ext_resource type="Script" path="res://main.gd" id="1_gwko1"]
+[ext_resource type="PackedScene" uid="uid://c8trwyeiiyu7a" path="res://entities/player.tscn" id="2_c6aog"]
+[ext_resource type="PackedScene" uid="uid://cxcpc2cmrjia4" path="res://entities/world_floor.tscn" id="5_3h5il"]
+[ext_resource type="PackedScene" uid="uid://ceav8jg3wdb5n" path="res://entities/PhysicBody.tscn" id="6_236b3"]
+[ext_resource type="PackedScene" uid="uid://vdn3dsjr0d8m" path="res://entities/turret.tscn" id="6_ggjtg"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gwko1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8u6mp")
+
+[node name="Player" parent="." instance=ExtResource("2_c6aog")]
+position = Vector2(362, 315)
+gravity = 4
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="TurretA" parent="." instance=ExtResource("6_ggjtg")]
+position = Vector2(565, 52)
+
+[node name="Floor-A" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(28, 0)
+scale = Vector2(3, 1)
+
+[node name="Floor-D" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(903, -25)
+scale = Vector2(0.5, 0.5)
+
+[node name="WallRigth" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(636, -522)
+rotation = 1.5708
+
+[node name="WallLeft" parent="." instance=ExtResource("5_3h5il")]
+position = Vector2(4033, -526)
+rotation = 1.5708
+
+[node name="Box" parent="." instance=ExtResource("6_236b3")]
+position = Vector2(787, 147)
+
+[node name="Box2" parent="Box" instance=ExtResource("6_236b3")]
+position = Vector2(43, -101)

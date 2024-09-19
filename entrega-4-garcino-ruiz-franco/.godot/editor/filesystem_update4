@@ -1,0 +1,5 @@
+res://entities/player.tscn
+res://entities/player.gd
+res://main.tscn
+res://main.gd
+res://entities/turret.tscn

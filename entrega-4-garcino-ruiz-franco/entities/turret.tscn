@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://vdn3dsjr0d8m"]
+
+[ext_resource type="PackedScene" uid="uid://dwwt1opv0hquv" path="res://entities/turret_projectile.tscn" id="2_77f1d"]
+[ext_resource type="Script" path="res://entities/turret.gd" id="2_mfwhg"]
+[ext_resource type="Texture2D" uid="uid://d3lqn5bk3uo34" path="res://resources/golem/Golem_IdleB.png" id="3_mixvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2kp2"]
+atlas = ExtResource("3_mixvm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqok4"]
+atlas = ExtResource("3_mixvm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhoba"]
+atlas = ExtResource("3_mixvm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su4dx"]
+atlas = ExtResource("3_mixvm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdkb1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2kp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqok4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhoba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su4dx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blsdw"]
+size = Vector2(33, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3p1t"]
+radius = 198.252
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("2_mfwhg")
+projectile_scene = ExtResource("2_77f1d")
+metadata/_edit_group_ = true
+
+[node name="turret" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -15.5)
+sprite_frames = SubResource("SpriteFrames_gdkb1")
+animation = &"Idle"
+frame_progress = 0.931153
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ShootOrigin" type="Marker2D" parent="."]
+position = Vector2(1.5, -11.5)
+
+[node name="TurretBody" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -14.5)
+shape = SubResource("RectangleShape2D_blsdw")
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+visible = false
+shape = SubResource("CircleShape2D_a3p1t")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
+[connection signal="body_exited" from="Detect" to="." method="_on_detect_body_exited"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vdn3dsjr0d8m"]
+
+[ext_resource type="Texture2D" uid="uid://f1qmf42r7n7p" path="res://resources/turret.png" id="1_rcaju"]
+[ext_resource type="Script" path="res://entities/turret.gd" id="2_mfwhg"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("2_mfwhg")
+metadata/_edit_group_ = true
+
+[node name="turret" type="Sprite2D" parent="."]
+position = Vector2(1.5, -2.5)
+texture = ExtResource("1_rcaju")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ShootOrigin" type="Marker2D" parent="."]
+position = Vector2(1.5, -0.5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
